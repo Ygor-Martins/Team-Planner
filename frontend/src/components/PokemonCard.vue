@@ -4,6 +4,10 @@ import type { Pokemon } from '@/types/pokemon'
 const props = defineProps<{
   pokemon: Pokemon
 }>()
+
+const emit = defineEmits<{
+    add:[pokemon: Pokemon]
+}>()
 </script>
 <template>
     <article class="Pokemon-card">
@@ -26,5 +30,12 @@ const props = defineProps<{
 
          </span>
         </div>
+
+<button
+  type="button"
+  @click="emit('add', pokemon)"
+>
+  Adicionar
+</button>
     </article>
 </template>
